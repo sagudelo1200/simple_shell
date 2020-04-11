@@ -1,8 +1,8 @@
-# Flame (shell)
+# 🔥-Flame (shell)
 
 Flame is a sh-like command language interpreter that executes commands read from standard input or from a file, with I/O exactly like sh (/bin/sh).
 
-## Installation
+## 🛠️-Installation
 
 Get this [repository](https://github.com/RedLyon1200/simple_shell) and run the Makefile to install Flame.
 
@@ -28,11 +28,11 @@ $ ./flame
 ## Contributors
 Holberton students, the school of software engineering.
 
-- [Santiago Agudelo.](https://github.com/RedLyon1200) - 1639@holbertonschool.com
-- [Alejandro Ramirez](https://github.com/FatChicken277) - 1637@holbertonschool.com
+- [Santiago Agudelo.](https://github.com/RedLyon1200) - 📨 1639@holbertonschool.com
+- [Alejandro Ramirez](https://github.com/FatChicken277) - 📨 1637@holbertonschool.com
 
 
-## License
+## 📜-License
 
 MIT License
 
