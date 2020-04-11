@@ -28,8 +28,8 @@ $ ./flame
 ## Contributors
 Holberton students, the school of software engineering.
 
-- [Santiago Agudelo.](https://github.com/RedLyon1200) - 1639@holbertonschool.com [-> contact](mailto:1639@holbertonschool.com)
-- [Alejandro Ramirez](https://github.com/FatChicken277) - 1637@holbertonschool.com [-> contact](mailto:1637@holbertonschool.com)
+- [Santiago Agudelo.](https://github.com/RedLyon1200) - 1639@holbertonschool.com
+- [Alejandro Ramirez](https://github.com/FatChicken277) - 1637@holbertonschool.com
 
 
 ## License
