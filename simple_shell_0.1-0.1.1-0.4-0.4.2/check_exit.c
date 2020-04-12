@@ -13,7 +13,7 @@ int check_exit(char *word)
 	{
 		return (-1);
 	}
-	for (i = 0; word[i] != '\0'; i++)
+	for (i = 0; c_exit[i] != '\0'; i++)
 	{
 		if (word[i] == c_exit[i])
 		{
