@@ -12,7 +12,6 @@ void commands(char *command)
 	argv[0] = command;
 	argv[1] = NULL;
 
-	printf("%s\n", command);
 	if (check(argv[0]) == 0)
 	{
 		child_pid = fork();
@@ -22,7 +21,6 @@ void commands(char *command)
 		}
 		else if (child_pid == 0)
 		{
-			printf("%s\n", command);
 			if (execve(argv[0], argv, NULL) == -1)
 			{
 				exit(-1);
