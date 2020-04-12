@@ -18,5 +18,7 @@ int check(char *file);
 void welcome(void);
 int check_exit(char *word);
 int _getline(char *s);
+void  CtrlC(int sig);
+
 
 #endif
