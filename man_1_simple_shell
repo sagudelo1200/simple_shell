@@ -1,0 +1,121 @@
+.TH man 1 "16 April 2020" "1.0" "FLAME (shell) man page"
+
+.Sh NAME
+.B FLAME (shell)
+- UNIX command interpreter.
+
+
+.SH SYNOPSIS
+.B ./hsh
+.RB {\0COMMAND\0FORMAT\0[ARGUMENT]...}\0
+
+
+.SH DESCRIPTION
+.B FLAME
+is a command processor written in C language,
+which executes user-supplied commands through the
+command line and sends the output of those commands to stdout.
+
+
+.SH OPTIONS
+.B BUILT-IN COMMANDS:
+.SS
+  --> env
+	- Prints the user environment.
+.RE
+.SS
+  --> exit
+	- Exits the program.
+
+
+.SH USE
+.B
+The FLAME shell can be used in 2 ways:
+
+.B
+--> Interactive mode
+.PP
+Interactive means that the commands are run with user-interaction from keyboard.
+.SS
+		EXAMPLE:
+		FLAME -> $ ls -la
+
+.B
+--> Non-interactive mode
+.PP
+A non-interactive shell is a shell that can not interact with the user. It’s most often run from a script or similar.
+.SS
+		EXAMPLE:
+		$ echo "ls -la" | ./hsh
+
+
+.SH EXAMPLES
+.B COMMAND:
+.SS
+  -->FLAME -> $ ls -la
+	total 108
+
+	drwxrwxr-x 3 noroot noroot  4096 Apr 14 13:20 .
+
+	drwxrwxr-x 4 noroot noroot  4096 Apr 13 17:07 ..
+
+	drwxrwxr-x 4 noroot noroot  4096 Apr 13 21:05 Test_Cases
+
+	-rw-rw-r-- 1 noroot noroot   355 Apr 14 10:55 _getline.c
+
+	-rw-rw-r-- 1 noroot noroot     0 Apr 13 19:13 a.out
+
+.RE
+.SS
+  -->FLAME -> $ exit
+	$  echo $?
+
+	0
+
+.RE
+.SS
+  -->$ echo "env" | ./hsh
+  	XDG_VTNR=7
+
+	XDG_SESSION_ID=c2
+
+	SELINUX_INIT=YES
+
+	XDG_GREETER_DATA_DIR=/var/lib/lightdm-data/noroot
+
+	CLUTTER_IM_MODULE=xim...
+
+
+.SH RETURN VALUE
+.B
+Return values will be specified below:
+
+.RS 0.2i
+
+.TS
+tab(@), left, box;
+c | c | c
+rB | ri | r.
+Case@Value@Description
+_
+exit @0  @build-in exit\0
+Ctrl-Z@148 @SIGTSTP Signal
+Ctrl-D@225 @End of file\0\0
+.TE
+.RE
+
+
+.SH BUGS
+No known bugs.
+
+Report bugs to https://github.com/RedLyon1200/simple_shell/issues
+
+
+.SH AUTHORS
+.PP
+Alejandro Ramirez Ciceros - Santiago Agudelo.
+
+
+.SH COPYRIGHT
+.PP
+Copyright 2020 Flame. All rights reserved
