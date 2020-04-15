@@ -1,4 +1,3 @@
- 
 #include "header.h"
 /**
  * _strcmp - compares two strings
