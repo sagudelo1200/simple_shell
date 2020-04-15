@@ -23,15 +23,12 @@ int words(void)
 				args2 = getargs(args[i]);
 				commands(args2);
 				i++;
-				free(args2);
 			}
-			free(args);
 		}
 		else
 		{
 			args = getargs(buffer);
 			commands(args);
-			free(args);
 		}
 	}
 	else
