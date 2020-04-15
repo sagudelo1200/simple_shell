@@ -7,7 +7,7 @@
 int words(void)
 {
 	int get_return = 0, i = 0;
-	char buffer[2024], **args, **args2;
+	char buffer[1024], **args, **args2;
 
 	/** yellow **/
 	write(STDIN_FILENO, "$ ", 2);
