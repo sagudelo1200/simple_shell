@@ -1,40 +1,60 @@
 #include "header.h"
 
 /**
+ * contokens - count the tokens.
+ * @buff: pointer to string.
+ * @del: delimiter.
+ * Return: token numbers.
+ */
+int contokens(char *buff, char *del)
+{
+	int count;
+	char *token, *aux_buff;
+
+	aux_buff = _strdup(buff);
+	token = strtok(aux_buff, del);
+	for (count = 1; token != NULL; count++)
+	{
+		token = strtok(NULL, " \n");
+	}
+	free(aux_buff);
+	return (count);
+}
+
+/**
  * getargs - get command and arguments.
  * @buffer: buffer.
  * Return: array of command and arguments.
  */
 char **getargs(char *buffer)
 {
-	char **array;
+	char *token,  **args;
+	int count;
+	unsigned int i;
 
-	array = malloc(sizeof(char *));
-	if (array)
+	if (buffer)
 	{
-		size_t n = 1;
-		char *token, **tmp;
-
-		token = strtok(buffer, " \t\r\n\v\f");
-		while (token)
+		i = contokens(buffer, " \n");
+		args = malloc(i * sizeof(char *));
+		if (args == NULL)
 		{
-			tmp = realloc(array, (n + 1) * sizeof(char *));
-			if (tmp == NULL)
-			{
-				break;
-			}
-			array = tmp;
-			++n;
-			array[n - 2] = malloc(_strlen(token) + 1);
-			if (array[n - 2] != NULL)
-			{
-				_strcpy(array[n - 2], token);
-			}
-			token = strtok(NULL, " \t\r\n\v\f");
+			return (NULL);
 		}
-		array[n - 1] = NULL;
+		token = strtok(buffer, " \t\r\f\n");
+		for (count = 0; token != NULL; count++)
+		{
+			args[count] = malloc(_strlen(token) - 1);
+			if (args[count] == NULL)
+			{
+				return (NULL);
+			}
+			_strcpy(args[count], token);
+			token = strtok(NULL, " \t\r\f\n");
+		}
+		args[count] = NULL;
+		return (args);
 	}
-	return (array);
+	return (NULL);
 }
 
 /**
@@ -44,32 +64,31 @@ char **getargs(char *buffer)
  */
 char **getargs2(char *buffer)
 {
-	char **array;
+	char *token,  **args;
+	int count;
+	unsigned int i;
 
-	array = malloc(sizeof(char *));
-	if (array)
+	if (buffer)
 	{
-		size_t n = 1;
-		char *token, **tmp;
-
-		token = strtok(buffer, "\n");
-		while (token)
+		i = contokens(buffer, "\n");
+		args = malloc(i * sizeof(char *));
+		if (args == NULL)
 		{
-			tmp = realloc(array, (n + 1) * sizeof(char *));
-			if (tmp == NULL)
-			{
-				break;
-			}
-			array = tmp;
-			++n;
-			array[n - 2] = malloc(_strlen(token) + 1);
-			if (array[n - 2] != NULL)
-			{
-				_strcpy(array[n - 2], token);
-			}
-			token = strtok(NULL, "\n");
+			return (NULL);
 		}
-		array[n - 1] = NULL;
+		token = strtok(buffer, "\n");
+		for (count = 0; token != NULL; count++)
+		{
+			args[count] = malloc(_strlen(token) - 1);
+			if (args[count] == NULL)
+			{
+				return (NULL);
+			}
+			_strcpy(args[count], token);
+			token = strtok(NULL, " \n");
+		}
+		args[count] = NULL;
+		return (args);
 	}
-	return (array);
+	return (NULL);
 }
