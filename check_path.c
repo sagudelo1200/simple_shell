@@ -15,6 +15,10 @@ char *check_path(char *command)
 		return (command);
 	}
 	tempstr = _getenv();
+	if (tempstr[0] == ':')
+	{
+		return (command);
+	}
 	tmp = _strdup(tempstr);
 	word = strtok(tmp, ":");
 	while (word != NULL)
