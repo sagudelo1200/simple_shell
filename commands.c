@@ -7,7 +7,6 @@
 void commands(char **argv)
 {
 	int status;
-	char *env_args[2] = {NULL, (char *)0};
 	pid_t child_pid;
 
 	check_exit(argv[0]);
@@ -22,7 +21,7 @@ void commands(char **argv)
 		}
 		else if (child_pid == 0)
 		{
-			if (execve(argv[0], argv, env_args) == -1)
+			if (execve(argv[0], argv, environ) == -1)
 			{
 				if (errno != 0)
 				{
