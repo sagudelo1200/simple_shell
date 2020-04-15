@@ -8,9 +8,9 @@
 int _getline(char *buffer)
 {
 	int i = 0, a;
-	char buf[1024];
+	char buf[1023];
 
-	a = read(STDIN_FILENO, buf, 1024);
+	a = read(STDIN_FILENO, buf, 1023);
 	if (a == 0 || buffer == NULL)
 	{
 		return (-1);
