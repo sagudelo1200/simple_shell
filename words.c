@@ -10,7 +10,7 @@ int words(void)
 	char buffer[2024], **args, **args2;
 
 	/** yellow **/
-	write(STDIN_FILENO, "\033[1;33mFLAME -> $ \033[m", 22);
+	write(STDIN_FILENO, "$ ", 2);
 
 	get_return = _getline(buffer);
 	if (get_return != -1)

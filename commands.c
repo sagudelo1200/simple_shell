@@ -7,7 +7,7 @@
 void commands(char **argv)
 {
 	int status;
-	char *env_args[2] = {NULL, (char *)0}, *err_msg = "\033[0;31m";
+	char *env_args[2] = {NULL, (char *)0};
 	pid_t child_pid;
 
 	check_exit(argv[0]);
@@ -26,7 +26,6 @@ void commands(char **argv)
 			{
 				if (errno != 0)
 				{
-					write(STDOUT_FILENO, err_msg, 7);
 					perror("Error");
 				}
 			}
@@ -40,8 +39,6 @@ void commands(char **argv)
 	{
 		if (errno != 0 && argv[0] != NULL)
 		{
-			/** red **/
-			write(STDOUT_FILENO, err_msg, 7);
 			perror(argv[0]);
 			fflush(stdout);
 		}
