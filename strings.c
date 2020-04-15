@@ -19,7 +19,6 @@ char *_strdup(char *str)
 		v = malloc(size * sizeof(char));
 		if (v == NULL)
 		{
-			free(v);
 			return (NULL);
 		}
 		for (i = 0; i < size; i++)
@@ -81,4 +80,24 @@ char *_strcat(char *dest, char *src)
 		;
 	dest[i++] = '\0';
 	return (dest);
+}
+
+/**
+ * _strcmp - compares two strings
+ * @s1: string 1
+ * @s2: string 2
+ *
+ * Return: 1 or 0
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i;
+
+	for (i = 0; s1[i] != '\0' && s2[i] != '\0'; i++)
+	{
+		if (s1[i] != s2[i])
+			return ((int) s1[i] - s2[i]);
+	}
+
+	return (0);
 }
