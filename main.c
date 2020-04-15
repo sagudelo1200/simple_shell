@@ -16,7 +16,6 @@ void sigintHandler(int sig_num __attribute__((unused)))
  */
 int main(void)
 {
-	welcome();
 	signal(SIGINT, sigintHandler);
 	if (!isatty(STDIN_FILENO))
 	{

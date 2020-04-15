@@ -18,7 +18,6 @@ extern char **environ;
 int words(void);
 void commands(char **command);
 int check(char *file);
-void welcome(void);
 void check_exit(char *word);
 int _getline(char *s);
 char *_getenv(void);

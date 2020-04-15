@@ -69,6 +69,7 @@ char **getargs2(char *buffer)
 			}
 			token = strtok(NULL, "\n");
 		}
+		free(tmp);
 		array[n - 1] = NULL;
 	}
 	return (array);
