@@ -17,7 +17,7 @@ char *_getenv(void)
 		token = strtok(tempstr, "=");
 		while (token != NULL)
 		{
-			a = strcmp(token, s);
+			a = _strcmp(token, s);
 			if (a == 0)
 			{
 				e = _strlen(s);

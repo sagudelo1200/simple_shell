@@ -32,5 +32,6 @@
 	char **getargs2(char *buffer);
 	void _env(void);
 	void check_env(char *word);
+	int _strcmp(char *s1, char *s2);
 
 #endif
