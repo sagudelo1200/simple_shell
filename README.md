@@ -19,7 +19,7 @@ simple_shell $ make
 you can see more information using the following command:
 
 ```bash
-simple_shell $ ./man man_1_simple_shell
+simple_shell $ man ./man_1_simple_shell
 ```
 
 ## 🔦-Usage
