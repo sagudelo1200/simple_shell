@@ -14,7 +14,7 @@ int check_exit(const char *word)
 	{
 		for (k = 0; k < _strlen(word) && word[k]; k++)
 			;
-		for (i = 0; c_exit[i] != '\0'; i++)
+		for (i = 0; word[i] != '\0'; i++)
 		{
 			if (word[i] == c_exit[i])
 			{

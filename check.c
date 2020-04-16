@@ -12,9 +12,9 @@ int check(char *file)
 	{
 		return (-1);
 	}
-	if (stat(file, &st) == -1 && !(st.st_mode & S_IXUSR))
+	if (stat(file, &st) == 0 && (st.st_mode & S_IXUSR))
 	{
-		return (-1);
+		return (0);
 	}
-	return (0);
+	return (-1);
 }

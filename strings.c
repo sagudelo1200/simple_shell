@@ -8,14 +8,14 @@
 char *_strdup(const char *str)
 {
 	int i = 0, j = 0;
-	char *s;
+	char *s = NULL;
 
 	if (str == NULL)
 		return (NULL);
 	while (str[i] != '\0')
 		i++;
 	i++;
-	s = malloc(i * sizeof(*s) + 1);
+	s = malloc(i * sizeof(*s) + 2);
 	if (s == NULL)
 		return (NULL);
 	while (j < i)
