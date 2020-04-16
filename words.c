@@ -22,7 +22,7 @@ void free_exit(char **args)
  */
 int words(void)
 {
-	int get_return = 0, i = 0, j = 0;
+	int get_return = 0, i = 0, j = 0, status = 0;
 	char buffer[1024], **args = NULL, **args2 = NULL;
 
 	write(STDIN_FILENO, "$ ", 2);
@@ -36,7 +36,7 @@ int words(void)
 			while (args[i] != NULL)
 			{
 				args2 = getargs(args[i]); /* divide the arguments */
-				commands(args2);		  /* the cmd is sent to execution */
+				status = commands(args2);		  /* the cmd is sent to execution */
 				i++;
 			}
 			j = 0;
@@ -53,12 +53,12 @@ int words(void)
 			args = getargs(buffer);		  /* divide the arguments */
 			if (check_exit(args[0]) == 0) /* validates if the command is exit */
 				free_exit(args);
-			commands(args);
+			status = commands(args);
 		}
 	}
 	else
 	{
-		exit(-1);
+		exit(status);
 	}
 	return (0);
 }

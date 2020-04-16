@@ -16,7 +16,7 @@ extern char **environ;
 #include <errno.h>
 /** prototypes **/
 int words(void);
-void commands(char **command);
+int commands(char **command);
 int check(char *file);
 int check_exit(const char *word);
 int _getline(char *s);

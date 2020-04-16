@@ -3,8 +3,9 @@
 /**
  * commands - executes the supplied command.
  * @argv: supplied command to execute.
+ * Return: status.
  */
-void commands(char **argv)
+int commands(char **argv)
 {
 	int status, i = 0;
 	pid_t child_pid;
@@ -43,4 +44,5 @@ void commands(char **argv)
 		i++;
 	}
 	free(argv);
+	return (status);
 }
