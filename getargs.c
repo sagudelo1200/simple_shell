@@ -34,7 +34,7 @@ char **getargs(char *buffer)
 
 	if (buffer)
 	{
-		i = contokens(buffer, " \n");
+		i = contokens(buffer, " \t\r\f\n");
 		args = malloc(i * sizeof(char *));
 		if (args == NULL)
 		{
@@ -43,7 +43,7 @@ char **getargs(char *buffer)
 		token = strtok(buffer, " \t\r\f\n");
 		for (count = 0; token != NULL; count++)
 		{
-			args[count] = malloc(_strlen(token) - 1);
+			args[count] = malloc(_strlen(token));
 			if (args[count] == NULL)
 			{
 				return (NULL);
@@ -79,7 +79,7 @@ char **getargs2(char *buffer)
 		token = strtok(buffer, "\n");
 		for (count = 0; token != NULL; count++)
 		{
-			args[count] = malloc(_strlen(token) - 1);
+			args[count] = malloc(_strlen(token));
 			if (args[count] == NULL)
 			{
 				return (NULL);
