@@ -21,6 +21,7 @@ int main(void)
 	{
 		fflush(stdout);
 	}
+	/* infinity loop */
 	while (1)
 	{
 		words();

@@ -10,11 +10,11 @@ void commands(char **argv)
 	pid_t child_pid;
 
 
-	check_env(argv[0]);
-	argv[0] = check_path(argv[0]);
+	check_env(argv[0]); /* validates if the command is 'env' */
+	argv[0] = check_path(argv[0]); /* check if the command exists in the path */
 	if (check(argv[0]) == 0)
 	{
-		child_pid = fork();
+		child_pid = fork(); /* create the child process*/
 		if (child_pid < 0)
 		{
 			exit(-1);

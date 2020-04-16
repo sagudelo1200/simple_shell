@@ -8,8 +8,8 @@
 int _getline(char *buffer)
 {
 	int i = 0, a;
-	char buf[1023];
-
+	static char buf[1023];
+	/* reads and stores the buffer entered in console */
 	a = read(STDIN_FILENO, buf, 1023);
 	if (a == 0 || buffer == NULL)
 	{

@@ -7,24 +7,24 @@
  */
 char *_strdup(const char *str)
 {
-    int i = 0, j = 0;
-    char *s;
+	int i = 0, j = 0;
+	char *s;
 
-    if (str == NULL)
-        return (NULL);
-    while (str[i] != '\0')
-        i++;
-    i++;
-    s = malloc(i * sizeof(*s) + 1);
-    if (s == NULL)
-        return (NULL);
-    while (j < i)
-    {
-        s[j] = str[j];
-        j++;
-    }
-    s[j] = '\0';
-    return (s);
+	if (str == NULL)
+		return (NULL);
+	while (str[i] != '\0')
+		i++;
+	i++;
+	s = malloc(i * sizeof(*s) + 1);
+	if (s == NULL)
+		return (NULL);
+	while (j < i)
+	{
+		s[j] = str[j];
+		j++;
+	}
+	s[j] = '\0';
+	return (s);
 }
 
 /**
@@ -64,21 +64,21 @@ void _strcpy(char *dest, const char *src)
  *@src: source.
  *Return: concatenated string.
  */
-char *_strcat(char *dest, char *src)
+char *_strcat(char *dest, const char *src)
 {
-    int a = 0, b = 0;
+	int a = 0, b = 0;
 
-    while (dest[a] != '\0')
-        a++;
-    dest[a++] = '/';
-    while (src[b] != '\0')
-    {
-        dest[a + b] = src[b];
-        b++;
-    }
-    dest[a + b] = '\0';
+	while (dest[a] != '\0')
+		a++;
+	dest[a++] = '/';
+	while (src[b] != '\0')
+	{
+		dest[a + b] = src[b];
+		b++;
+	}
+	dest[a + b] = '\0';
 
-    return (dest);
+	return (dest);
 }
 
 /**
