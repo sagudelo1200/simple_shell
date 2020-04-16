@@ -45,7 +45,6 @@ int words(void)
 				free(args[j]);
 				j++;
 			}
-			free(args2);
 			free(args);
 		}
 		else
