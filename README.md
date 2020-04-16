@@ -10,7 +10,16 @@ Get this [repository](https://github.com/RedLyon1200/simple_shell) and run the �
 ```bash
 $ git clone https://github.com/RedLyon1200/simple_shell
 
-$ make
+$ cd simple_shell/
+
+$ simple_shell$ make
+```
+## 📑-Documentation
+
+you can see more information using the following command:
+
+```bash
+simple_shell$ man man_1_simple_shell
 ```
 
 ## 🔦-Usage
