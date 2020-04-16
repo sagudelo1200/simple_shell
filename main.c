@@ -7,7 +7,7 @@
 void sigintHandler(int sig_num __attribute__((unused)))
 {
 	write(STDOUT_FILENO, "\n", 1);
-	write(STDIN_FILENO, "$ ", 2);
+	write(STDIN_FILENO, "\033[1;31mFLAME -> $ \033[0m", 22);
 }
 
 /**
