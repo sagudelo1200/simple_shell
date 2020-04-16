@@ -23,7 +23,7 @@ int _getline(char *s);
 char *_getenv(void);
 char **getargs(char *buffer);
 char *check_path(char *c);
-char *_strcat(char *dest, char *src);
+char *_strcat(char *dest, const char *src);
 void _strcpy(char *dest, const char *src);
 int _strlen(const char *string);
 char *_strdup(const char *str);
