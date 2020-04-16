@@ -13,17 +13,32 @@ $ git clone https://github.com/RedLyon1200/simple_shell
 $ make
 ```
 
-## Usage
+## 🔦-Usage
 
+The FLAME shell can be used in 2 ways:
 
+### Interactive mode
 
+Interactive means that the commands are run with user-interaction from keyboard.
+
+EXAMPLE:
 ```bash
-$ ./flame
-
--
--
--
+FLAME -> $ ls -la
 ```
+
+### Non-interactive mode
+
+A non-interactive shell is a shell that can not interact with the user.  It’s  most  often  run
+from a script or similar.
+
+EXAMPLE:
+```bash
+$ echo "ls -la" | ./hsh
+```
+
+
+
+
 
 ## 🧑-Contributors
 Holberton students, the school of software engineering.
