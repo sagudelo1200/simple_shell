@@ -1,60 +1,50 @@
 #include "header.h"
 
 /**
- * contokens - count the tokens.
- * @buff: pointer to string.
- * @del: delimiter.
- * Return: token numbers.
- */
-int contokens(char *buff, char *del)
-{
-	int count;
-	char *token, *aux_buff;
-
-	aux_buff = _strdup(buff);
-	token = strtok(aux_buff, del);
-	for (count = 1; token != NULL; count++)
-	{
-		token = strtok(NULL, " \n");
-	}
-	free(aux_buff);
-	return (count);
-}
-
-/**
  * getargs - get command and arguments.
  * @buffer: buffer.
  * Return: array of command and arguments.
  */
 char **getargs(char *buffer)
 {
-	char *token,  **args;
-	int count;
-	unsigned int i;
+    char *str = 0, *str2 = 0;
+    char **array = 0, *tok = 0;
+    int i = 0; /* , j = 0 */
 
-	if (buffer)
-	{
-		i = contokens(buffer, " \t\r\f\n");
-		args = malloc(i * sizeof(char *));
-		if (args == NULL)
-		{
-			return (NULL);
-		}
-		token = strtok(buffer, " \t\r\f\n");
-		for (count = 0; token != NULL; count++)
-		{
-			args[count] = malloc(_strlen(token));
-			if (args[count] == NULL)
-			{
-				return (NULL);
-			}
-			_strcpy(args[count], token);
-			token = strtok(NULL, " \t\r\f\n");
-		}
-		args[count] = NULL;
-		return (args);
-	}
-	return (NULL);
+    if (buffer)
+    {
+        /* duplicate str to avoid strtok damage and delete /n */
+        str = _strdup(buffer);
+        str2 = _strdup(str);
+
+        tok = strtok(str, " \n\t\r\v\f\a");
+
+        /* count number of tokens */
+        while (tok != NULL)
+        {
+            i++;
+            tok = strtok(NULL, " \n\t\r\v\f\a");
+        }
+        array = malloc(sizeof(char *) * (i + 1));
+        tok = strtok(str2, " \n\t\r\v\f\a");
+        i = 0;
+
+        /* fill array with each token */
+        while (tok != NULL)
+        {
+            array[i] = _strdup(tok);
+            i++;
+            tok = strtok(NULL, " \n\t\r\v\f\a");
+        }
+        array[i] = NULL;
+
+        /* free memory */
+        free(str);
+        free(str2);
+        return (array);
+    }
+
+    return (NULL);
 }
 
 /**
@@ -64,31 +54,42 @@ char **getargs(char *buffer)
  */
 char **getargs2(char *buffer)
 {
-	char *token,  **args;
-	int count;
-	unsigned int i;
+    char *str = 0, *str2 = 0;
+    char **array = 0, *tok = 0;
+    int i = 0; /* , j = 0 */
 
-	if (buffer)
-	{
-		i = contokens(buffer, "\n");
-		args = malloc(i * sizeof(char *));
-		if (args == NULL)
-		{
-			return (NULL);
-		}
-		token = strtok(buffer, "\n");
-		for (count = 0; token != NULL; count++)
-		{
-			args[count] = malloc(_strlen(token));
-			if (args[count] == NULL)
-			{
-				return (NULL);
-			}
-			_strcpy(args[count], token);
-			token = strtok(NULL, " \n");
-		}
-		args[count] = NULL;
-		return (args);
-	}
-	return (NULL);
+    if (buffer)
+    {
+        /* duplicate str to avoid strtok damage and delete /n */
+        str = _strdup(buffer);
+        str2 = _strdup(str);
+
+        tok = strtok(str, "\n");
+
+        /* count number of tokens */
+        while (tok != NULL)
+        {
+            i++;
+            tok = strtok(NULL, "\n");
+        }
+        array = malloc(sizeof(char *) * (i + 1));
+        tok = strtok(str2, "\n");
+        i = 0;
+
+        /* fill array with each token */
+        while (tok != NULL)
+        {
+            array[i] = _strdup(tok);
+            i++;
+            tok = strtok(NULL, "\n");
+        }
+        array[i] = NULL;
+
+        /* free memory */
+        free(str);
+        free(str2);
+        return (array);
+    }
+
+    return (NULL);
 }

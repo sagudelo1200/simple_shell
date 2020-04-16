@@ -7,7 +7,7 @@
  */
 char *check_path(char *command)
 {
-	char *word, *word2, *tempstr, *tmp;
+	char *word = NULL, *word2 = NULL, *tempstr = NULL, *tmp = NULL;
 	struct stat st;
 
 	if (!command)
@@ -23,7 +23,7 @@ char *check_path(char *command)
 	word = strtok(tmp, ":");
 	while (word != NULL)
 	{
-		word2 = malloc(_strlen(word) + 1 + _strlen(command) + 2);
+		word2 = malloc(_strlen(word) + 3 + _strlen(command));
 		_strcpy(word2, word);
 		_strcat(word2, command);
 		if (stat(word2, &st) == 0 && st.st_mode & S_IXUSR)

@@ -6,14 +6,13 @@
  */
 char *_getenv(void)
 {
-	int i, a, e = 0;
-	char *token, *tempstr;
+	int i = 0, a, e = 0;
+	char *token, *tempstr = NULL;
 	char *s = "PATH";
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		tempstr = malloc(_strlen(environ[i]) + 1);
-		_strcpy(tempstr, environ[i]);
+		tempstr = _strdup(environ[i]);
 		token = strtok(tempstr, "=");
 		while (token != NULL)
 		{
@@ -28,7 +27,6 @@ char *_getenv(void)
 		}
 		free(tempstr);
 	}
-	free(tempstr);
 	return (NULL);
 }
 

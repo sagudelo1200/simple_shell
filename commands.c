@@ -9,7 +9,7 @@ void commands(char **argv)
 	int status;
 	pid_t child_pid;
 
-	check_exit(argv[0]);
+
 	check_env(argv[0]);
 	argv[0] = check_path(argv[0]);
 	if (check(argv[0]) == 0)

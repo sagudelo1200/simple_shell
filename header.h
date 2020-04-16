@@ -18,18 +18,18 @@ extern char **environ;
 int words(void);
 void commands(char **command);
 int check(char *file);
-void check_exit(char *word);
+int check_exit(const char *word);
 int _getline(char *s);
 char *_getenv(void);
 char **getargs(char *buffer);
 char *check_path(char *c);
 char *_strcat(char *dest, char *src);
-char *_strcpy(char *dest, char *src);
-int _strlen(char *string);
-char *_strdup(char *str);
+void _strcpy(char *dest, const char *src);
+int _strlen(const char *string);
+char *_strdup(const char *str);
 char **getargs2(char *buffer);
 void _env(void);
-void check_env(char *word);
+void check_env(const char *word);
 int _strcmp(char *s1, char *s2);
 
 #endif

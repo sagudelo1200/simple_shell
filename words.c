@@ -7,9 +7,10 @@
 int words(void)
 {
 	int get_return = 0, i = 0;
-	char buffer[1024], **args, **args2;
+	char buffer[1024], **args = NULL, **args2 = NULL;
 
-	write(STDIN_FILENO, "\033[1;31mFLAME -> $ \033[0m", 22);
+	/** yellow **/
+	write(STDIN_FILENO, "$ ", 2);
 
 	get_return = _getline(buffer);
 	if (get_return != -1)
@@ -27,6 +28,17 @@ int words(void)
 		else
 		{
 			args = getargs(buffer);
+			if (check_exit(args[0]) == 0)
+			{
+			    while (args[i])
+                {
+                    free(args[i]);
+                    i++;
+                }
+			    free(args);
+			    free(args2);
+				exit (0);
+			}
 			commands(args);
 		}
 	}

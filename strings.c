@@ -5,30 +5,26 @@
  *@str: string.
  *Return: a pointer to the array, or NULL if it fails.
  */
-char *_strdup(char *str)
+char *_strdup(const char *str)
 {
-	char *v;
-	unsigned int i, size = 1;
+    int i = 0, j = 0;
+    char *s;
 
-	if (str)
-	{
-		for (i = 0; str[i] != '\0'; i++)
-		{
-			size++;
-		}
-		v = malloc(size * sizeof(char));
-		if (v == NULL)
-		{
-			return (NULL);
-		}
-		for (i = 0; i < size; i++)
-		{
-			v[i] = str[i];
-		}
-		v[i] = '\0';
-		return (v);
-	}
-	return (NULL);
+    if (str == NULL)
+        return (NULL);
+    while (str[i] != '\0')
+        i++;
+    i++;
+    s = malloc(i * sizeof(*s) + 1);
+    if (s == NULL)
+        return (NULL);
+    while (j < i)
+    {
+        s[j] = str[j];
+        j++;
+    }
+    s[j] = '\0';
+    return (s);
 }
 
 /**
@@ -36,12 +32,12 @@ char *_strdup(char *str)
  *@string: string.
  *Return: length of the string given.
  */
-int _strlen(char *string)
+int _strlen(const char *string)
 {
 	int i = 0;
 
-	for (i = 0; string[i] != 0; i++)
-		;
+	while (string[i] != '\0')
+		i++;
 	return (i);
 }
 
@@ -51,7 +47,7 @@ int _strlen(char *string)
  *@src: source.
  *Return: copied string.
  */
-char *_strcpy(char *dest, char *src)
+void _strcpy(char *dest, const char *src)
 {
 	int i;
 
@@ -59,8 +55,7 @@ char *_strcpy(char *dest, char *src)
 	{
 		dest[i] = src[i];
 	}
-	dest[i] = '\0';
-	return (dest);
+	dest[i] = 0;
 }
 
 /**
@@ -71,15 +66,19 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strcat(char *dest, char *src)
 {
-	int i = 0, j = 0;
+    int a = 0, b = 0;
 
-	for (i = 0; dest[i] != '\0'; i++)
-		;
-	dest[i++] = '/';
-	while ((dest[i++] = src[j++]) != '\0')
-		;
-	dest[i++] = '\0';
-	return (dest);
+    while (dest[a] != '\0')
+        a++;
+    dest[a++] = '/';
+    while (src[b] != '\0')
+    {
+        dest[a + b] = src[b];
+        b++;
+    }
+    dest[a + b] = '\0';
+
+    return (dest);
 }
 
 /**
