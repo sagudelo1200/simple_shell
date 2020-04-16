@@ -9,7 +9,7 @@ char **getargs(char *buffer)
 {
 	char *str = 0, *str2 = 0;
 	char **array = 0, *tok = 0;
-	int i = 0; /* , j = 0 */
+	int i = 0;
 
 	if (buffer)
 	{
@@ -56,7 +56,7 @@ char **getargs2(char *buffer)
 {
 	char *str = 0, *str2 = 0;
 	char **array = 0, *tok = 0;
-	int i = 0; /* , j = 0 */
+	int i = 0;
 
 	if (buffer)
 	{
@@ -73,6 +73,8 @@ char **getargs2(char *buffer)
 			tok = strtok(NULL, "\n");
 		}
 		array = malloc(sizeof(char *) * (i + 1));
+		if (!array)
+			return (NULL);
 		tok = strtok(str2, "\n");
 		i = 0;
 

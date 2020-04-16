@@ -1,15 +1,31 @@
 #include "header.h"
 
 /**
+ * free_exit - free memory
+ * @args: memory
+ */
+void free_exit(char **args)
+{
+	int i = 0;
+
+	while (args[i])
+	{
+		free(args[i]);
+		i++;
+	}
+	free(args);
+	exit(0);
+}
+/**
  * words - converts the output into words.
  * Return: 0 if its ok, and -1 if its bad.
  */
 int words(void)
 {
-	int get_return = 0, i = 0;
+	int get_return = 0, i = 0, j = 0;
 	char buffer[1024], **args = NULL, **args2 = NULL;
 
-	write(STDIN_FILENO, "$ ", 2); /* yellow */
+	write(STDIN_FILENO, "$ ", 2);
 
 	get_return = _getline(buffer); /* get the value entered by console */
 	if (get_return != -1)
@@ -20,24 +36,24 @@ int words(void)
 			while (args[i] != NULL)
 			{
 				args2 = getargs(args[i]); /* divide the arguments */
-				commands(args2); /* the cmd is sent to execution */
+				commands(args2);		  /* the cmd is sent to execution */
 				i++;
 			}
+			j = 0;
+			while (args[j])
+			{
+				free(args[j]);
+				j++;
+			}
+			free(args2);
+			free(args);
 		}
 		else
 		{
-			args = getargs(buffer); /* divide the arguments */
+			i = 0;
+			args = getargs(buffer);		  /* divide the arguments */
 			if (check_exit(args[0]) == 0) /* validates if the command is exit */
-			{
-				while (args[i])
-				{
-					free(args[i]);
-					i++;
-				}
-				free(args);
-				free(args2);
-				exit(0);
-			}
+				free_exit(args);
 			commands(args);
 		}
 	}

@@ -29,6 +29,7 @@ char *check_path(char *command)
 		if (stat(word2, &st) == 0 && st.st_mode & S_IXUSR)
 		{
 			free(tmp);
+			free(command);
 			return (word2);
 		}
 		free(word2);
