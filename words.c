@@ -16,6 +16,7 @@ void free_exit(char **args)
 	free(args);
 	exit(0);
 }
+
 /**
  * words - converts the output into words.
  * Return: 0 if its ok, and -1 if its bad.
@@ -36,7 +37,7 @@ int words(void)
 			while (args[i] != NULL)
 			{
 				args2 = getargs(args[i]); /* divide the arguments */
-				status = commands(args2);		  /* the cmd is sent to execution */
+				status = commands(args2); /* the cmd is sent to execution */
 				i++;
 			}
 			j = 0;

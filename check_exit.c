@@ -33,8 +33,9 @@ int check_exit(const char *word)
 /**
  * check_env - check env command.
  * @word: word to check.
+ * Return: 0 if OK, -1 if not.
  */
-void check_env(const char *word)
+int check_env(const char *word)
 {
 	int i = 0, j = 0, k = 0;
 	char *c_exit = "env";
@@ -53,7 +54,8 @@ void check_env(const char *word)
 		}
 		if (i == j && k == 0)
 		{
-			_env();
+			return (0);
 		}
 	}
+	return  (-1);
 }

@@ -29,7 +29,7 @@ int _strlen(const char *string);
 char *_strdup(const char *str);
 char **getargs2(char *buffer);
 void _env(void);
-void check_env(const char *word);
+int check_env(const char *word);
 int _strcmp(char *s1, char *s2);
 
 #endif
